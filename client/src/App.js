@@ -3,7 +3,7 @@ import axios from 'axios';
 import MovieList from './Movies/MovieList'
 import Movie from './Movies/Movie'
 
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
 
 import SavedList from './Movies/SavedList';
 
@@ -32,13 +32,13 @@ const App = () => {
   return (
     <div>
       <SavedList list={[ /* This is stretch */]} />
-      <Route path='/'>
-        <MovieList movies={movieList}/> 
-      </Route>
+        <Route exact path='/'>
+          <MovieList movies={movieList}/> 
+        </Route>
 
-      <Route path='/movies/:id'>
-         <Movie movie={Movie}/>
-      </Route>
+        <Route path='/movies/:id'>
+          <Movie movie={Movie}/>
+        </Route>
     </div>
   );
 };
